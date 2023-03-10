@@ -1,23 +1,29 @@
 package com.example.notesapp
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.LinearLayout
 import android.widget.PopupMenu
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.room.Room
 
 import com.example.notesapp.Adapter.NotesAdapter
 import com.example.notesapp.Database.NoteDatabase
 import com.example.notesapp.Models.Note
 import com.example.notesapp.Models.NoteViewModel
 import com.example.notesapp.databinding.ActivityMainBinding
+import kotlinx.coroutines.launch
+
 
 
 class MainActivity : AppCompatActivity(),NotesAdapter.NotesClickListener,PopupMenu.OnMenuItemClickListener{
@@ -106,9 +112,24 @@ class MainActivity : AppCompatActivity(),NotesAdapter.NotesClickListener,PopupMe
     }
 
     override fun onLongItemClicked(note: Note, cardView: CardView) {
-      selectedNote=note
-        popUpDisplay(cardView)
-    }
+        val context = this
+        val builder = AlertDialog.Builder(context)
+        builder.setMessage("Silmek istiyor musunuz?")
+            .setCancelable(false)
+            .setPositiveButton("Evet") { _, _ ->
+                lifecycleScope.launch {
+                    NoteViewModel(application).deleteNote(note)
+                    Toast.makeText(context, "Not silindi", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .setNegativeButton("Hayır") { dialog, _ ->
+                dialog.dismiss()
+            }
+        val alert = builder.create()
+        alert.show()
+        }
+
+
     private  fun popUpDisplay(cardView: CardView)
     {
         val popup=PopupMenu(this,cardView)

@@ -10,11 +10,38 @@
     <color name="grey">#808080</color>
 
 
-    <color name="NoteColor1">#FF6263</color>
-    <color name="NoteColor2">#23C4ED</color>
-    <color name="NoteColor3">#38CC77</color>
-    <color name="NoteColor4">#D9D55B</color>
-    <color name="NoteColor5">#318BD1</color>
-    <color name="NoteColor6">#D345D0</color>
+    <color name="NoteColor1">#FFBFC0</color>
+    <color name="NoteColor2">#99E8F5</color>
+    <color name="NoteColor3">#A0F3B3</color>
+    <color name="NoteColor4">#F8F5C1</color>
+    <color name="NoteColor5">#8BC8F5</color>
+    <color name="NoteColor6">#F2A8F2</color>
+    <color name="NoteColor7">#FFE3E3</color>
+
+    <color name="NoteColor9">#FFBFC0</color>
+    <color name="NoteColor10">#A0F3B3</color>
+    <color name="NoteColor11">#ffc596</color>
+    <color name="NoteColor12">#d96b55</color>
+    <color name="NoteColor13">#FFE3E3</color>
+    <color name="NoteColor14">#BDD4EE</color>
+    <color name="NoteColor15">#FCE39A</color>
+    <color name="NoteColor16">#C59BDC</color>
+    <color name="NoteColor17">#a8fff3</color>
+    <color name="NoteColor18">#7AD6D3</color>
+    <color name="NoteColor19">#ad4640</color>
+
+
+    <color name="NoteColor21">#F5B7B1</color>
+    <color name="NoteColor22">#9065A5</color>
+    <color name="NoteColor23">#5DB85D</color>
+
+    <color name="NoteColor25">#c49e70</color>
+
+
+        <color name="colorOption1">#D9E3F0</color>
+        <color name="colorOption2">#B7D3E9</color>
+        <color name="colorOption3">#9AB9D5</color>
+        <color name="colorOption4">#7795B4</color>
+        <color name="colorOption5">#486B8F</color>
 
 </resources>

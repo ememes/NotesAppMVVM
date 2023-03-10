@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-
 import com.example.notesapp.Models.Note
 import com.example.notesapp.R
-
 import java.util.*
+
+
 import kotlin.collections.ArrayList
-import kotlin.random.Random
+
 
 class NotesAdapter(private val context:Context,val listener:NotesClickListener) : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
 
@@ -30,27 +30,27 @@ class NotesAdapter(private val context:Context,val listener:NotesClickListener) 
 
 //    @RequiresApi(Build.VERSION_CODES.M)
 //    @SuppressLint("NewApi")
-    override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-       val currentNote=NotesList[position]
+override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
+    val currentNote = NotesList[position]
 
-        holder.title.text=currentNote.title
-        holder.title.isSelected=true
+    holder.title.text = currentNote.title
+    holder.title.isSelected = true
 
-        holder.Note_tv.text=currentNote.note
-        holder.date.text=currentNote.date
-        holder.date.isSelected=true
+    holder.Note_tv.text = currentNote.note
+    holder.date.text = currentNote.date
+    holder.date.isSelected = true
 
+    val color = randomColor(currentNote.id ?: -1)
+    holder.notes_layout.setCardBackgroundColor(color)
 
-        holder.notes_layout.setCardBackgroundColor(holder.itemView.resources.getColor(randomColor(),null))
-        holder.notes_layout.setOnClickListener{
-            listener.onItemClicked(NotesList[holder.adapterPosition])
-        }
-        holder.notes_layout.setOnLongClickListener {
-            listener.onLongItemClicked(NotesList[holder.adapterPosition],holder.notes_layout)
-            true
-        }
-
+    holder.notes_layout.setOnClickListener {
+        listener.onItemClicked(NotesList[holder.adapterPosition])
     }
+    holder.notes_layout.setOnLongClickListener {
+        listener.onLongItemClicked(NotesList[holder.adapterPosition], holder.notes_layout)
+        true
+    }
+}
 
     override fun getItemCount(): Int {
        return NotesList.size
@@ -76,21 +76,19 @@ class NotesAdapter(private val context:Context,val listener:NotesClickListener) 
         }
         notifyDataSetChanged()
     }
-    fun randomColor():Int{
+    fun randomColor(id: Int): Int {
+        // Eşleştirme tablosunu SharedPreferences kullanarak kaydet
+        val sharedPref = context.getSharedPreferences("ColorTable", Context.MODE_PRIVATE)
+        var color = sharedPref.getInt(id.toString(), -1)
+        if (color == -1) {
+            // Eşleştirme yok, yeni bir renk ata
 
-        val list= ArrayList<Int>()
-        list.add(R.color.NoteColor1)
-        list.add(R.color.NoteColor2)
-        list.add(R.color.NoteColor3)
-        list.add(R.color.NoteColor4)
-        list.add(R.color.NoteColor5)
-        list.add(R.color.NoteColor6)
-
-        val seed=System.currentTimeMillis().toInt()
-        val randomIndex= Random(seed).nextInt(list.size)
-        return list[randomIndex]
-
-
+            val colors = context.resources.getIntArray(R.array.note_colors)
+            color = colors[Random().nextInt(colors.size)]
+            // Eşleştirme tablosuna kaydet
+            sharedPref.edit().putInt(id.toString(), color).apply()
+        }
+        return color
     }
     inner class NoteViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
 

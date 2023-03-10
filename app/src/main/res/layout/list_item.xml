@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:stateListAnimator="@animator/button_anim2"
     android:layout_margin="8dp"
     app:cardCornerRadius="8dp"
     android:elevation="8dp"
@@ -22,6 +23,7 @@
                 android:ellipsize="marquee"
                 android:marqueeRepeatLimit="marquee_forever"
                 android:text="Title"
+                android:fontFamily="@font/sanspro"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textSize="18dp">
@@ -33,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Note"
+
             android:padding="8dp"
             android:textColor="@color/black"
             android:textSize="14sp">
