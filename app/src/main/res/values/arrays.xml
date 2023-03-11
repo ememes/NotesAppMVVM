@@ -1,0 +1,35 @@
+<resources>
+    <integer-array name="note_colors">
+        <item>@color/NoteColor1</item>
+        <item>@color/NoteColor2</item>
+
+        <item>@color/NoteColor4</item>
+        <item>@color/NoteColor5</item>
+        <item>@color/NoteColor6</item>
+        <item>@color/NoteColor7</item>
+
+        <item>@color/NoteColor9</item>
+        <item>@color/NoteColor10</item>
+        <item>@color/NoteColor11</item>
+        <item>@color/NoteColor12</item>
+
+        <item>@color/NoteColor13</item>
+        <item>@color/NoteColor14</item>
+        <item>@color/NoteColor15</item>
+        <item>@color/NoteColor16</item>
+        <item>@color/NoteColor17</item>
+
+        <item>@color/NoteColor18</item>
+        <item>@color/NoteColor19</item>
+
+
+        <item>@color/NoteColor21</item>
+        <item>@color/NoteColor22</item>
+        <item>@color/NoteColor23</item>
+        <item>@color/NoteColor25</item>
+
+
+
+
+    </integer-array>
+</resources>

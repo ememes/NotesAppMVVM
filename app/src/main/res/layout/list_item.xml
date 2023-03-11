@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Note"
-
+            android:fontFamily="@font/sanspror"
             android:padding="8dp"
             android:textColor="@color/black"
             android:textSize="14sp">
@@ -47,13 +47,14 @@
             android:layout_height="wrap_content"
             android:text="Date"
             android:singleLine="true"
+            android:fontFamily="@font/sanspror"
             android:scrollHorizontally="true"
             android:textStyle="normal"
             android:maxLines="10"
             android:ellipsize="marquee"
             android:marqueeRepeatLimit="marquee_forever"
             android:padding="8dp"
-            android:textColor="@color/grey"
+            android:textColor="#363636"
             android:textSize="14sp">
 
         </TextView>
